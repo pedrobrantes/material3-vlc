@@ -1,0 +1,30 @@
+# Python / uv
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+
+# Nix / devenv / direnv
+.devenv/
+.devenv.flake.nix
+devenv.lock
+.direnv/
+result
+result-*
+
+# Build outputs
+dist/
+build/
+*.vlt
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

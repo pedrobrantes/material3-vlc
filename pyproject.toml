@@ -1,0 +1,92 @@
+[build-system]
+requires = ["hatchling>=1.25.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "material3-vlc"
+version = "0.1.0"
+description = "Modern Material 3 (Material You) design-token skin engine and theme suite for VLC Media Player"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.11"
+authors = [
+  { name = "Pedro Brantes", email = "58346706+PedroBrantes@users.noreply.github.com" },
+]
+keywords = [
+  "vlc",
+  "vlc-skin",
+  "skins2",
+  "material-design",
+  "material-3",
+  "material-you",
+  "hct",
+  "theme-generator",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Multimedia :: Video",
+  "Topic :: Multimedia :: Sound/Audio",
+  "Topic :: Desktop Environment",
+]
+dependencies = [
+  "lxml>=5.3.0",
+  "materialyoucolor>=3.0.0",
+  "pillow>=11.0.0",
+  "resvg-py>=0.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/PedroBrantes/material3-vlc"
+Repository = "https://github.com/PedroBrantes/material3-vlc"
+Issues = "https://github.com/PedroBrantes/material3-vlc/issues"
+
+[project.scripts]
+m3vlc = "material3_vlc.cli:main"
+
+[dependency-groups]
+dev = [
+  "mypy>=1.13.0",
+  "pytest>=8.3.0",
+  "pytest-cov>=6.0.0",
+  "ruff>=0.8.0",
+  "types-lxml>=2024.11.0",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/material3_vlc"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"assets" = "material3_vlc/assets"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "W", "RUF"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_ignores = true
+mypy_path = "src"
+
+[[tool.mypy.overrides]]
+module = ["materialyoucolor.*", "resvg_py.*"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
