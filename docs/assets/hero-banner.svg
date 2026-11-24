@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" width="1200" height="320" role="img" aria-label="Material 3 VLC — Material You Design-Token Skin Suite for VLC Media Player">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1A18"/>
+      <stop offset="55%" stop-color="#261F1C"/>
+      <stop offset="100%" stop-color="#1C1824"/>
+    </linearGradient>
+    <radialGradient id="blob1" cx="18%" cy="24%" r="48%">
+      <stop offset="0%" stop-color="#764635" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#764635" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blob2" cx="84%" cy="76%" r="52%">
+      <stop offset="0%" stop-color="#4F378B" stop-opacity="0.65"/>
+      <stop offset="100%" stop-color="#4F378B" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fabGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8B8A0"/>
+      <stop offset="100%" stop-color="#D0BCFF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Base M3 Surface Container -->
+  <rect width="1200" height="320" rx="28" fill="url(#bgGrad)"/>
+  <rect width="1200" height="320" rx="28" fill="url(#blob1)"/>
+  <rect width="1200" height="320" rx="28" fill="url(#blob2)"/>
+  <rect x="1" y="1" width="1198" height="318" rx="27" fill="none" stroke="#504440" stroke-width="1.5"/>
+
+  <!-- Organic Material You decorative shapes on the right -->
+  <g opacity="0.92" transform="translate(875, 48)">
+    <!-- Soft M3 tonal card preview -->
+    <rect x="0" y="0" width="268" height="224" rx="26" fill="#2A2320" stroke="#53433E" stroke-width="1.5"/>
+    <!-- Mini topbar dots -->
+    <circle cx="24" cy="24" r="5" fill="#9C8E89"/>
+    <circle cx="42" cy="24" r="5" fill="#9C8E89"/>
+    <rect x="82" y="20" width="104" height="8" rx="4" fill="#53433E"/>
+    <circle cx="244" cy="24" r="5" fill="#F8B8A0"/>
+    <!-- Album art rounded squircle -->
+    <rect x="92" y="48" width="84" height="84" rx="24" fill="#3B2F2B" stroke="#53433E" stroke-width="1.2"/>
+    <circle cx="134" cy="90" r="22" fill="#764635"/>
+    <path d="M131 79v16.5a5.5 5.5 0 1 0 3 4.9V85h8v-6h-11z" fill="#FFDCD0"/>
+    <!-- Expressive Seek bar with carved gap -->
+    <rect x="24" y="152" width="104" height="6" rx="3" fill="#F8B8A0"/>
+    <rect x="134" y="145" width="4.5" height="20" rx="2.25" fill="#F8B8A0"/>
+    <rect x="144" y="152" width="100" height="6" rx="3" fill="#463C39"/>
+    <circle cx="241" cy="155" r="2.2" fill="#F8B8A0"/>
+    <!-- Expressive Play/Pause FAB + controls -->
+    <circle cx="52" cy="190" r="13" fill="#383330"/>
+    <circle cx="88" cy="190" r="13" fill="#383330"/>
+    <rect x="111" y="173" width="46" height="34" rx="12" fill="url(#fabGrad)"/>
+    <rect x="128" y="182" width="4.5" height="16" rx="2" fill="#3C2218"/>
+    <rect x="136.5" y="182" width="4.5" height="16" rx="2" fill="#3C2218"/>
+    <circle cx="180" cy="190" r="13" fill="#383330"/>
+    <circle cx="216" cy="190" r="13" fill="#53433E"/>
+  </g>
+
+  <!-- Brand Icon Badge -->
+  <g transform="translate(64, 54)">
+    <rect width="58" height="58" rx="18" fill="url(#fabGrad)"/>
+    <path d="M23 19.5c0-1.4 1.5-2.2 2.7-1.5l16.2 9.5c1.2.7 1.2 2.3 0 3l-16.2 9.5c-1.2.7-2.7-.1-2.7-1.5v-19z" fill="#361E14"/>
+  </g>
+
+  <!-- Title & Subtitle -->
+  <text x="140" y="88" font-family="Roboto, 'Segoe UI', system-ui, sans-serif" font-size="40" font-weight="700" fill="#F5EAE6" letter-spacing="-0.8">Material 3 VLC</text>
+  <text x="140" y="114" font-family="Roboto, 'Segoe UI', system-ui, sans-serif" font-size="16" font-weight="400" fill="#D3C3BE">Material You skins and palette studio for VLC Media Player</text>
+
+  <!-- Feature Pills -->
+  <g font-family="Roboto, 'Segoe UI', system-ui, sans-serif" font-size="13" font-weight="600">
+    <rect x="64" y="148" width="166" height="34" rx="17" fill="#53433E"/>
+    <text x="147" y="170" text-anchor="middle" fill="#F5DDD5">10 Color Palettes</text>
+
+    <rect x="242" y="148" width="176" height="34" rx="17" fill="#3F344F"/>
+    <text x="330" y="170" text-anchor="middle" fill="#EADDFF">OS Dynamic Colors</text>
+
+    <rect x="430" y="148" width="170" height="34" rx="17" fill="#3D312C"/>
+    <text x="515" y="170" text-anchor="middle" fill="#FFDCD0">1x &amp; 2x HiDPI SVG</text>
+
+    <rect x="612" y="148" width="188" height="34" rx="17" fill="#35312F"/>
+    <text x="706" y="170" text-anchor="middle" fill="#ECE0DC">Visual Theme Studio</text>
+  </g>
+
+  <!-- Color Swatch Dots Row -->
+  <g transform="translate(64, 214)">
+    <text x="0" y="12" font-family="Roboto, 'Segoe UI', system-ui, sans-serif" font-size="12" font-weight="500" fill="#B5A6A1" letter-spacing="0.8">PRE-BUILT RELEASE PALETTES (DARK • LIGHT • AMOLED)</text>
+    <g transform="translate(0, 26)">
+      <circle cx="14" cy="14" r="13" fill="#795548" stroke="#ECE0DC" stroke-width="1.5"/>
+      <circle cx="52" cy="14" r="13" fill="#D32F2F" stroke="#504440" stroke-width="1.2"/>
+      <circle cx="90" cy="14" r="13" fill="#1A73E8" stroke="#504440" stroke-width="1.2"/>
+      <circle cx="128" cy="14" r="13" fill="#C99700" stroke="#504440" stroke-width="1.2"/>
+      <circle cx="166" cy="14" r="13" fill="#146C2E" stroke="#504440" stroke-width="1.2"/>
+      <circle cx="204" cy="14" r="13" fill="#D81B60" stroke="#504440" stroke-width="1.2"/>
+      <circle cx="242" cy="14" r="13" fill="#6750A4" stroke="#504440" stroke-width="1.2"/>
+      <circle cx="280" cy="14" r="13" fill="#FF8800" stroke="#504440" stroke-width="1.2"/>
+      <circle cx="318" cy="14" r="13" fill="#121212" stroke="#9C8E89" stroke-width="1.2"/>
+      <circle cx="356" cy="14" r="13" fill="#F5F5F5" stroke="#9C8E89" stroke-width="1.2"/>
+    </g>
+  </g>
+</svg>
