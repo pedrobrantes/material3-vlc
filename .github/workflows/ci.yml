@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality-and-build:
+    name: Lint, Typecheck, Test & Validate (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.11", "3.13"]
+        exclude:
+          - os: windows-latest
+            python-version: "3.11"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+
+      - name: Set up Python ${{ matrix.python-version }}
+        run: uv python install ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: uv sync --python ${{ matrix.python-version }}
+
+      - name: Lint with Ruff
+        run: uv run ruff check src tests
+
+      - name: Typecheck with Mypy
+        run: uv run mypy src
+
+      - name: Run unit & integration test suite
+        run: uv run pytest -v --cov=material3_vlc --cov-report=term-missing
+
+      - name: Build & DTD-validate flagship presets
+        run: |
+          uv run m3vlc build --preset m3-brown-dark --out dist
+          uv run m3vlc build --preset m3-brown-light --out dist
+          uv run m3vlc build --preset m3-black-amoled --out dist
+          uv run m3vlc build --preset m3-white-light --out dist
+          uv run m3vlc build --preset m3-orange-dark --scale 2.0 --out dist
+          uv run m3vlc validate dist/m3-brown-dark.vlt
+          uv run m3vlc validate dist/m3-brown-light.vlt
+          uv run m3vlc validate dist/m3-black-amoled.vlt
+          uv run m3vlc validate dist/m3-white-light.vlt
+          uv run m3vlc validate dist/m3-orange-dark-2x.vlt

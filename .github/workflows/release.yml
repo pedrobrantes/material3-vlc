@@ -1,0 +1,48 @@
+name: Release Skins
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-release:
+    name: Build All Material 3 VLC Presets (1x & 2x)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v4
+        with:
+          enable-cache: true
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Verify tests pass
+        run: uv run pytest
+
+      - name: Build complete preset suite (1x & 2x HiDPI)
+        run: uv run m3vlc build-all --scales 1.0 2.0 --out dist
+
+      - name: Validate every generated .vlt archive
+        shell: bash
+        run: |
+          for vlt in dist/*.vlt; do
+            uv run m3vlc validate "$vlt"
+          done
+
+      - name: Upload release artifacts to GitHub Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            dist/*.vlt
+            dist/SHA256SUMS.txt

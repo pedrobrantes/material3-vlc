@@ -1,0 +1,41 @@
+name: Bug Report
+description: Report a visual issue, layout glitch, or CLI bug
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: input
+    id: vlc_version
+    attributes:
+      label: VLC Version
+      placeholder: "e.g. 3.0.21"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: OS
+      options:
+        - Windows 11
+        - Windows 10
+        - Linux (X11)
+        - Linux (Wayland)
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: skin_config
+    attributes:
+      label: Skin / Command
+      placeholder: "e.g. m3-brown-dark (1x)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Details
+      description: Steps to reproduce and screenshots if applicable.
+    validations:
+      required: true
